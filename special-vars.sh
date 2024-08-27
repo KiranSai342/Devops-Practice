@@ -6,3 +6,10 @@ echo "Script Name: $0"
 echo "Current working Directory: $PWD"
 echo "Home directory of current user : $HOME"
 echo "PID of the current running script: $$"
+
+sleep 100 &
+
+echo "PID of the last background command: $!"
+
+
+
