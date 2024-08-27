@@ -2,7 +2,7 @@
 
 Number=$1
 
-If [ $Number -gt 20 ] #-gt = Greatet then, -lt = Less then, -eq = equals, -ne = not equals, -ge = Greater then equal to, -le = less then equal to. .
+if [ $Number -gt 20 ] #-gt = Greatet then, -lt = Less then, -eq = equals, -ne = not equals, -ge = Greater then equal to, -le = less then equal to. .
 then
     echo "The given Number: $Number id Greater then : 20"
 else
