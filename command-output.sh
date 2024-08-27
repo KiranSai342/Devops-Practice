@@ -7,4 +7,4 @@ echo "Today's date $Date"
 X=$1
 Y=$2
 
-Echo " Print : $X:$Y"
+echo " Print : $X:$Y"
