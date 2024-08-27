@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Userid=$(id -u)
+Userid=$(sudo id -u)
 
 if [ $Userid -ne 0 ]
 then
