@@ -7,5 +7,5 @@ then
     echo "please run the script with root previllages"
     exit 1
 fi
-dnf install mysql-server -y
+sudo dnf install mysql-server -y
 
