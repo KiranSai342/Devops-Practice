@@ -7,7 +7,15 @@ then
     echo "please run the script with root previllages"
     exit 1
 fi
-dnf install mysql-server -y
+dnf list installed mysql-server 
+
+if [ $? -ne 0 ]
+then
+    echo "Mysql is not installed. Going to install it."
+    dnf install mysql-server -y
+else
+    echo "Mysql already installed. Nothing to do."
+fi
 
 
 
