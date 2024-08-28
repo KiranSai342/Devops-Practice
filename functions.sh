@@ -19,18 +19,17 @@ then
 fi
 dnf list installed mysql-server
 
-
-
-
-
 if [ $? -ne 0 ]
 then
     echo "Mysql is not installed. Going to install it."
     dnf install mysql-server -y
     Validate $? "Mysql Installation"
+    echo "Exit status: $?"
+    
     
 else
     echo "Mysql already installed. Nothing to do."
+    echo "Exit status: $?"
 fi
 
 
