@@ -3,7 +3,13 @@
 Userid=$(id -u)
 
 Validate(){
-    echo "exit status $1"
+    if [ $1 -eq 0 ]
+    then
+        echo "$2 is success"
+    else
+        echo "$2 is not success"
+        exit $1
+    fi
 }
 
 if [ $Userid -ne 0 ]
@@ -13,24 +19,19 @@ then
 fi
 dnf list installed mysql-server
 
-Validate $?
 
 
 
-# if [ $? -ne 0 ]
-# then
-#     echo "Mysql is not installed. Going to install it."
-#     dnf install mysql-server -y
-#     if [ $? -ne 0 ]
-#     then    
-#         echo "Installation not successed"
-#         exit 1
-#     else
-#         echo "Installation success"
-#     fi
-# else
-#     echo "Mysql already installed. Nothing to do."
-# fi
+
+if [ $? -ne 0 ]
+then
+    echo "Mysql is not installed. Going to install it."
+    dnf install mysql-server -y
+    Validate $? "Mysql Installation"
+    
+else
+    echo "Mysql already installed. Nothing to do."
+fi
 
 
 
