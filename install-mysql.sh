@@ -13,6 +13,12 @@ if [ $? -ne 0 ]
 then
     echo "Mysql is not installed. Going to install it."
     dnf install mysql-server -y
+    if [ $? -ne 0 ]
+    then    
+        echo "Installation not successed"
+        exit 1
+    else
+        echo "Installation success"
 else
     echo "Mysql already installed. Nothing to do."
 fi
