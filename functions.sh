@@ -29,7 +29,6 @@ then
     
     
 else
-    echo "Exit status: $?"
     echo "Mysql already installed. Nothing to do."
     
 fi
