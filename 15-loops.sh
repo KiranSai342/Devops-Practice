@@ -28,7 +28,7 @@ do
 
     if [ $? -ne 0 ]
     then
-        echo "$Package is not installed. Going to install it."
+        echo "$package is not installed. Going to install it."
         dnf install $package -y
         echo "Exit status: $?"
         Validate $? "$package installation" 
