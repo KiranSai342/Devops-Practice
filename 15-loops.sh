@@ -12,14 +12,14 @@ Validate(){
         exit $1
     fi
 }
-Check_root() {
+Check_root(){
    if [ $Userid -ne 0 ]
 then
     echo "please run the script with root previllages"
     exit 1
 fi 
 }
-Check_root()
+Check_root
 
 #sh 15.loops.sh git mysql-server postfix nginx
 for package in $@   #$@ refers to all arguments passed to it.
