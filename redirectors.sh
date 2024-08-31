@@ -25,7 +25,17 @@ then
     exit 1
 fi 
 }
+
+Usage(){
+    echo "Usage:: Sudo sh <file-name> package1 package2..."
+    exit 1
+}
 Check_root
+
+if[ $# -eq 0 ]
+then
+    Usage
+fi
 
 #sh 15.loops.sh git mysql-server postfix nginx
 for package in $@   #$@ refers to all arguments passed to it.
