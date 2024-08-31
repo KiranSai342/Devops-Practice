@@ -7,14 +7,16 @@ Log_file="$Logs_folder/$Script_name-$Time_stamp.log"
 
 mkdir -p /var/log/shell-script  # -P refers to know the folder is already created or not
 
+echo "The script starts at $(date)" | tee -a $Log_file
+
 
 
 Validate(){
     if [ $1 -eq 0 ]
     then
-        echo "$2 is success" &>>$Log_file
+        echo "$2 is success" | tee -a $Log_file
     else
-        echo "$2 is not success" &>>$Log_file
+        echo "$2 is not success" | tee -a $Log_file
         exit $1
     fi
 }
@@ -30,7 +32,7 @@ Usage(){
     echo "Usage:: sudo sh <file-name> package1 package2..." | tee -a $Log_file
     exit 1
 }
-Check_root &>>$Log_file
+Check_root 
 
 if [ $# -eq 0 ]
 then
@@ -44,15 +46,17 @@ do
 
     if [ $? -ne 0 ]
     then
-        echo "$package is not installed. Going to install it." &>>$Log_file
+        echo "$package is not installed. Going to install it." | tee -a $Log_file
         dnf install $package -y &>>$Log_file
         echo "Exit status: $?" &>>$Log_file
         Validate $? "$package installation" &>>$Log_file 
     else
-        echo "$package already installed. Nothing to do." &>>$Log_file
+        echo "$package already installed. Nothing to do." | tee -a $Log_file
         
     fi
 done
+
+
 
 
 
