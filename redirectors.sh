@@ -22,12 +22,12 @@ Check_root(){
     if [ $Userid -ne 0 ]
     then
         echo "please run the script with root previllages" | tee -a $Log_file
-    exit 1
+        exit 1
     fi 
 }
 
 Usage(){
-    echo "Usage:: Sudo sh <file-name> package1 package2..."
+    echo "Usage:: sudo sh <file-name> package1 package2..."
     exit 1
 }
 Check_root
