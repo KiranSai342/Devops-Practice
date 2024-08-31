@@ -21,7 +21,7 @@ Validate(){
 Check_root(){
     if [ $Userid -ne 0 ]
     then
-    echo "please run the script with root previllages" &>>$Log_file
+    echo "please run the script with root previllages" | tee -a $Log_file
     exit 1
     fi 
 }
