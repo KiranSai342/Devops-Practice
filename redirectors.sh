@@ -27,7 +27,7 @@ Check_root(){
 }
 
 Usage(){
-    echo "Usage:: sudo sh <file-name> package1 package2..."
+    echo "Usage:: sudo sh <file-name> package1 package2..." | tee -a $Log_file
     exit 1
 }
 Check_root
