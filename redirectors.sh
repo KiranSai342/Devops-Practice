@@ -19,11 +19,11 @@ Validate(){
     fi
 }
 Check_root(){
-   if [ $Userid -ne 0 ]
-then
+    if [ $Userid -ne 0 ]
+    then
     echo "please run the script with root previllages" &>> $Log_file
     exit 1
-fi 
+    fi 
 }
 
 Usage(){
