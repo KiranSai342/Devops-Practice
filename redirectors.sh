@@ -30,7 +30,7 @@ Usage(){
     echo "Usage:: sudo sh <file-name> package1 package2..." | tee -a $Log_file
     exit 1
 }
-Check_root
+Check_root &>>$Log_file
 
 if [ $# -eq 0 ]
 then
