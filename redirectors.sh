@@ -12,16 +12,16 @@ mkdir -p /var/log/shell-script  # -P refers to know the folder is already create
 Validate(){
     if [ $1 -eq 0 ]
     then
-        echo "$2 is success" &>> $Log_file
+        echo "$2 is success" &>>$Log_file
     else
-        echo "$2 is not success" &>> $Log_file
+        echo "$2 is not success" &>>$Log_file
         exit $1
     fi
 }
 Check_root(){
     if [ $Userid -ne 0 ]
     then
-    echo "please run the script with root previllages" &>> $Log_file
+    echo "please run the script with root previllages" &>>$Log_file
     exit 1
     fi 
 }
@@ -40,16 +40,16 @@ fi
 #sh 15.loops.sh git mysql-server postfix nginx
 for package in $@   #$@ refers to all arguments passed to it.
 do 
-    dnf list installed $package &>> $Log_file
+    dnf list installed $package &>>$Log_file
 
     if [ $? -ne 0 ]
     then
-        echo "$package is not installed. Going to install it." &>> $Log_file
-        dnf install $package -y &>> $Log_file
-        echo "Exit status: $?" &>> $Log_file
-        Validate $? "$package installation" &>> $Log_file 
+        echo "$package is not installed. Going to install it." &>>$Log_file
+        dnf install $package -y &>>$Log_file
+        echo "Exit status: $?" &>>$Log_file
+        Validate $? "$package installation" &>>$Log_file 
     else
-        echo "$package already installed. Nothing to do." &>> $Log_file
+        echo "$package already installed. Nothing to do." &>>$Log_file
         
     fi
 done
